@@ -1,0 +1,25 @@
+CONST MAX C'EST 100
+CONST MIN C'EST 1
+CONST MIN_CALCUL C'EST 2
+
+VAR fibonacci [MIN_INDEX..MAX_INDEX] de entier
+VAR i, nombre : ENTIER
+
+REPETER
+  ECRIRE('Eentrez un nombre entre 1 et ', MAX, ': ')
+  LIRE(nombre)
+JUSQU'A nombre >= MIN ET nombre <= MAX
+
+
+fibonacci[1] <- 1
+fibonacci[2] <- 1
+
+SI nombre > MIN_CALCUL ALORS
+  POUR i DE MIN_CALCUL + 1 A nombre FAIRE
+    fibonacci[i] <- fibonacci[i -1] + fibonacci[i -2]
+  FAIT
+FINSI
+
+POUR i DE MIN A nombre FAIRE
+  ECRIRE(fibonacci[i], ', ')
+FAIT

@@ -1,0 +1,39 @@
+// NOM : pourcentage éléves
+// AUTEUR : Néville Dubuis
+// DATE : 06.11.2014
+// OBJECTIF : Calculer la propotion d'éléves en secondaire et en primaire dans un commune
+// MODIFICATIONS : -----
+
+VAR numero_ecole : ENTIER           // le numer de l'école                             (entrée utilisateur)
+VAR nb_eleves_primaire : ENTIER     // le nombre d'éléves en primaires dans une école  (entrée utilisateur)
+VAR nb_eleves_secondaire : ENTIER   // le nombre d'éléves en secondaire dans une école (entrée utilisateur)
+VAR total_primaire : ENTIER         // total d'éléves en primaire
+VAR total_secondaire : ENTIER       // total d'éléves en secondaire
+VAR total_eleves : ENTIER           // total de tout les éléves
+VAR pourcentage_primaire : REEL     // pourcentage d'éléves en primare
+VAR pourcentage_secondaire : REEL   // pourcentage d'éléves en secondaire
+
+total_primare <- 0
+total_secondaire <- 0
+
+REPETER
+  ECRIRE("Entrez le numero de l'ecole (pour termier le programe entrez un nombre plus petit que 0)")
+  LIRE(numero_ecole)
+
+  ECRIRE("Entrez le nombre d'éléves en primaire dans cette école")
+  LIRE(nb_eleves_primaire)
+
+  ECRIRE("Entrez le nombre d'éléves en secondaire dans cette école")
+  LIRE(nb_eleves_secondaire)
+
+  total_primaire <- total_primaire + nb_eleves_primaire
+  total_secondaire <- total_secondaire + nb_eleves_secondaire
+JUSQU'A numero_ecole < 0
+
+total_eleve <- total_primaire + total_secondaire
+pourcentage_primaire <- (total_primaire / total_eleves) * 100
+pourcentage_secondaire <- (total_secondaire / total_eleves) * 100
+
+ECRIRE("Sur un total de ", total_eleves, " :")
+ECRIRE(il y a un pourcentage de ", pourcentage_primaire, "% d'éléves en primaire")
+ECRIRE(il y a un pourcentage de ", pourcentage_secondaire, "% d'éléves en secondaire")

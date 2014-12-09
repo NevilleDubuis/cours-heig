@@ -1,0 +1,37 @@
+CONST NB_REPETITION C'EST 10
+
+VAR i : ENTIER
+VAR nombre, somme : REEL
+
+i <- 0
+somme <- 0
+
+REPETER
+  i <- i + 1
+
+  ECIRE("Entrez un nombre")
+  LIRE(nombre)
+  somme <- somme + nombre
+JUSQU'A i = NB_REPETITION
+
+ECRIRE("La somme des nombre entré est :", somme)
+_____________________________________________________________________
+
+
+CONST NB_REPETITION C'EST 10
+
+VAR i : ENTIER
+VAR nombre, somme : REEL
+
+i <- 0
+somme <- 0
+
+TANT QUE i < NB_REPETITION FAIRE
+  i <- i + 1
+
+  ECIRE("Entrez un nombre")
+  LIRE(nombre)
+  somme <- somme + nombre
+FAIT
+
+ECRIRE("La somme des nombre entré est :", somme)

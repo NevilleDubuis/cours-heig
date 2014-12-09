@@ -1,0 +1,35 @@
+CONST MIN C'EST 1
+CONST MAX C'EST 100
+
+VAR tableau [MIN_INDEX..MAX_INDEX] de entier
+VAR i : ENTIER
+VAR sentinelle : ENTIER
+VAR valeur : ENTIER
+
+i <- MIN
+
+ECRIRE('ENtrez votre valeur sentinelle : ')
+LIRE(sentinelle)
+
+REPTER
+  ECRIRE('Entrez une Valeur :')
+  LIRE(valeur)
+
+  tableau[i] <- valeur
+
+  i <- i + 1
+JUSQU'A valeur = sentinelle OU i = MAX
+
+SI i = MAX ALORS
+  ECRIRE('Nombre de valeur maximal atteint')
+FINSI
+
+i <- MIN
+
+ECRIRE("les valeurs entrée sont les suivantes :")
+
+TANT QUE tableau[i] <> sentinelle FAIRE
+  ECRIRE(i, ": ", tableau[i])
+
+  i <- i + 1
+FAIT

@@ -1,0 +1,36 @@
+// NOM : Dépense calorique
+// AUTEUR : Néville Dubuis
+// DATE : 02.10.2014
+// OBJECTIF : Calcue la dépesne calorique en fonction du sexe de la personne
+// MODIFICATIONS : -----
+// ENTREES : genre (caractère 'm' ou 'f')
+//           poids (poids de la personne en Kilo)
+//           taille (taille de la personne en cm)
+
+CONST KHOMME C'EST 40
+CONST KFEMME C'EST 35
+CONST METABOLISME C'EST 0.172
+
+VAR genre : CHARACTERE
+VAR poids, taille, depense_kalorique : REEL
+
+REPETER
+  ECRIRE("Quel est votre sexe (m|f) ?")
+  LIRE(genre)
+JUSQU`A genre = 'm' OU genre = 'f'
+
+ECRIRE("Quel est votre poids (Kg)?")
+LIRE(poids)
+
+ECRIRE("Quel est votre taille (cm)?")
+LIRE(taille)
+
+SI genre = 'm'
+ALORS
+  depense_kalorique <- (poids ^ 0.425) * (taille ^ 0.725) * METABOLISME * KHOMME
+SINON
+  depense_kalorique <- (poids ^ 0.425) * (taille ^ 0.725) * METABOLISME * KFEMME
+FINSI
+
+ECRIRE("Vous brulez ", depense_kalorique, "Kilocalories par jour")
+

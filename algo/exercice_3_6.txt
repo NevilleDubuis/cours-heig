@@ -1,0 +1,57 @@
+// NOM : Taxe postière
+// AUTEUR : Néville Dubuis
+// DATE : 02.10.2014
+// OBJECTIF : Calcuer la taxe pour les dimension d'un paquet
+// MODIFICATIONS : -----
+// ENTREES : poids (poides du colis en kilo)
+//           largeur (largeur de colis en centimetre)
+//           longueur (longueur de colis en centimetre
+//           hauteur (hauteur de colis en centimetre
+
+// prix des taxe et surtaxe
+CONST TAXE C'EST 5
+CONST SURTAXE C'EST 3
+
+// données maximale d'un colis, avant qu'il ne soit hors normes
+CONST MAXPOIDS C'EST 10
+CONST MAXLONGUEUR C'EST 50
+CONST MAXLARGEUR C'EST 50
+CONST MAXHAUTEUR C'EST 50
+
+//Ccondition de surtaxe
+CONST POIDSSURTAXE C'EST 5
+CONST VOLUMESURTAXE C'EST 27000
+
+VAR poids, longueur, largeur, hauteur, volume : REEL
+VAR prix : ENTIER
+
+// Programme
+
+ECRIRE("Entrez le poids(kg)")
+LIRE(poids)
+
+ECRIRE("Entrez la longueur(cm)")
+LIRE(longueur)
+
+ECRIRE("Entrez la largeur(cm)")
+LIRE(largeur)
+
+ECRIRE("Entrez la hauteur(cm)")
+LIRE(hauteur)
+
+SI poids > MAXPOIDS OU longueur > MAXLONGUEUR OU largeur > MAXLARGEUR OU hauteur > MAXHAUTEUR ALORS
+  ECRIRE('Ce colis est hors normes')
+SINON
+  prix <- TAXE
+
+  SI poids > POIDSTAXE ALORS
+    prix <- prix + SURTAXE
+  FINSI
+
+  volume <- longueur * largeur * hauteur
+  SI volume > VOLUMETAXE ALORS
+    prix <- prix + SURTAXE
+  FINSI
+
+  ECRIRE("la taxe pour ce colis est de : ", prix)
+FINSIN

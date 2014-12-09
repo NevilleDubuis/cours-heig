@@ -1,0 +1,37 @@
+// NOM : test qualité ampoule
+// AUTEUR : Néville Dubuis
+// DATE : 06.11.2014
+// OBJECTIF : donner le pourcentage d'ampoule defectueuse/fonctionnelle lors du test qualité
+// MODIFICATIONS : -----
+
+VAR i : ENTIER                                // compteur de la boucle repeter représantant le numero d'ampoule du test courant
+VAR total_ampoules : ENTIER                   // nombre d'ampoules du lot à tester (entrée utilisateur)
+VAR etat_ampoule : ENTIER                     // etat de l'ampoule du test courant (entrée utilisateur)
+VAR ampoules_fonctionelles : ENTIER           // nombre d'ampoules fonctionelles
+VAR ampoules_defectueuses : ENTIER            // nombre d'ampoules defectueuses
+VAR pourcentage_ampoules_fonctionelles : REEL // pourcentage d'ampoules fonctionelles
+VAR pourcentage_ampoules_defectueuses : REEL  // pourcentage d'ampoules defectueuses
+
+REPETER
+  ECRIRE("Entrez le nombre d'ampoule testée :")
+  LIRE("total_ampoules")
+JUSQU'A total_ampoules > 0
+
+POUR i ALLANT DE 1 A total_ampoules A PAS DE 1 FAIRE
+  REPETER
+    ECRIRE("Entrez l'état de l'ampoule [1/0] (1= fonctionnelle, 0 = défectueuse)")
+    LIRE(etat_ampoule)
+  JUSQU'A etat_ampoule = 1 OU etat_ampoule = 0
+
+  SI etat_ampoule = 1 ALORS
+    ampoules_fonctionelles <- ampoules_fonctionelles + 1
+  SINON
+    ampoules_defectueuses <- ampoules_defectueuses + 1
+  FINSI
+
+  pourcentage_ampoules_defectueuses <- (ampoules_defectueuses / i) * 100
+  ECRIRE(pourcentage_ampoules_defectueuses, "% des ampoules sont défectueuses après ", i, " ampoules testées")
+FAIT
+
+pourcentage_ampoules_fonctionelles <- (ampoules_fonctionelles / ) * 100
+ECRIRE(pourcentage_ampoules_fonctionelles, "% des ampoules sont fonctionelles sur une total de ", total_ampoules, " testées")

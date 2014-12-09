@@ -1,0 +1,24 @@
+// NOM : aficher si un nombre et plus grand plus petit ou egale a 10
+// AUTEUR : Néville Dubuis
+// DATE : 02.10.2014
+// OBJECTIF : dans la description
+// MODIFICATIONS : -----
+// ENTREES : nombre (valeur a comparer)
+
+CONST COMPARATEUR C'EST 10
+VAR nombre : ENTIER
+
+ECRIRE("Entrez un nombre entier :")
+LIRE(nombre)
+
+SI nombre < COMPARATEUR
+ALORS
+  ECRIRE("Plus petit que ", COMPARATEUR)
+SINON
+  SI nombre > COMPARATEUR
+  ALORS
+    ECRIRE("Plus grand que ", COMPARATEUR)
+  SINON
+    ECRIRE("Egal à ", COMPARATEUR)
+  FINSI
+FINSI

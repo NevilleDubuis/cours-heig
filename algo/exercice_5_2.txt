@@ -1,0 +1,49 @@
+CONST MIN_INDEX C'EST 1
+CONST MAX_INDEX C'EST 10
+CONST VALEUR C'EST 7
+
+VAR x [MIN_INDEX..MAX_INDEX] de entier
+VAR i : ENTIER
+
+POUR i DE MIN_INDEX A MAX_INDEX FAIRE
+  x[i] <- VALEUR
+FAIT
+
+
+================================================================================
+
+
+CONST MIN_INDEX C'EST 1
+CONST MAX_INDEX C'EST 10
+CONST INDEX_SPECIAL C'EST 4
+CONST VALEUR C'EST 0
+CONST SPECIAL C'EST 7
+
+VAR x [MIN_INDEX..MAX_INDEX] de entier
+VAR i : ENTIER
+
+POUR i DE MIN_INDEX A MAX_INDEX FAIRE
+  x[i] <- VALEUR
+FAIT
+
+x[INDEX_SPECIAL] <- SPECIAL
+
+
+================================================================================
+
+
+CONST MIN_INDEX C'EST 1
+CONST MAX_INDEX C'EST 10
+CONST VALEUR C'EST 0
+CONST SPECIAL C'EST 7
+
+VAR x [MIN_INDEX..MAX_INDEX] de entier
+VAR i : ENTIER
+
+POUR i DE MIN_INDEX A MAX_INDEX FAIRE
+  SI i != MIN_INDEX ET i != MAX_INDEX ALORS
+    x[i] <- VALEUR
+  SINON
+    x[i] <- SPECIAL
+  FINSI
+FAIT

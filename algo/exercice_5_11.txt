@@ -1,0 +1,33 @@
+CONST MIN C'EST 0
+CONST MAX C'EST 1000
+
+VAR nombre_min, nombre_max, ecart : ENTIER
+VAR i : ENTIER
+VAR nombre : ENTIER
+
+REPETER
+  ECRIRE('Entrez un nombre entre', MIN + 1, ' et ', MAX, ': ')
+  LIRE(nombre)
+JUSQU'A nombre > MIN ET nombre <= MAX
+
+ECRIRE('Entrez un valeur :')
+LIRE(tableau[MIN])
+nombre_min <- tableau[MIN]
+nombre_max <- tableau[MIN]
+
+POUR i DE MIN + 1 A nombre FAIRE
+  ECRIRE('Entrez un valeur :')
+  LIRE(tableau[i])
+
+  SI nombre_min > tableau[i]
+    nombre_min <- tableau[i]
+  FINSI
+
+  SI nombre_max < tableau[i]
+    nombre_max <- tableau[i]
+  FINSI
+FAIT
+
+ecart <- nombre_max - nombre_min
+
+ECRIRE("l'ecart maximum entre deux nombre est de ", ecart)

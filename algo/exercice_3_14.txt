@@ -1,0 +1,101 @@
+// NOM : validation de date
+// AUTEUR : Néville Dubuis
+// DATE : 06.11.2014
+// OBJECTIF : valider qu'une date comprise entre 1901 et 2099 soient correcte, en tenant compte des années bisextile
+// MODIFICATIONS : -----
+
+CONST MIN_ANNEE C'EST 1901
+CONST MAX_ANNEE C'EST 2099
+CONST MIN_MOI C'EST 1
+CONST MAX_MOI C'EST 12
+CONST MIN_JOUR C'EST 1
+CONST MAX_JOUR C'EST 31
+CONST MAX_JOUR_MOI_COURT C'EST 30
+CONST MAX_JOUR_FEVRIER C'EST 28
+CONST MAX_JOUR_FEVRIER_BISEXTILE C'EST 29
+
+VAR annee : ENTIER        // numero de l'année
+VAR moi : ENTIER          // numero du moi
+VAR jour : ENTIER         // numero du jour
+VAR moi_court : BOOLEAN   // etat pour les moi a 30 jour
+VAR jour_valid : BOOLEAN  // etat de la validité du jour
+VAR moi_valid : BOOLEAN   // état de la validité du moi
+VAR annee_valid : BOOLEAN // état de la validité de l'année
+
+ECRIRE("Entrez l'années de la date :")
+LIRE("annee")
+
+ECRIRE("Entrez le moi de la date :")
+LIRE("moi")
+
+ECRIRE("Entrez le jour de la date :")
+LIRE("jour")
+
+jour_valid <- true
+moi_valid <- true
+annee_valid <- true
+
+//------------------------------//
+// validation de la date entrée //
+//------------------------------//
+
+
+SI annee < MIN_ANNEE OU annee > MAX_ANNEE ALORS
+  annee_valid <- false
+FINSI
+
+SI moi < MIN_MOI OU moi > MAX_MOI ALORS
+  moi_valid <- false
+FINSI
+
+// validation du numero de jour de façon générique
+SI jour < MIN_JOUR OU jour > MAX_JOUR ALORS
+  jour_valid <- false
+FINSI
+
+// validation du numero de jour pour une date étant en fevrier
+SI jour_valid ET mois = 2 ALORS
+  SI annee MOD 4 = 0 ALORS
+    SI jour < MAX_JOUR_FEVRIER_BISEXTILE ALORS
+      jour_valid <- false
+    FINSI
+  SINON
+    SI jour < MAX_JOUR_FEVRIER_BISEXTILE ALORS
+      jour <- false
+    FINSI
+  FINSI
+FINSI
+
+// validation du jour du moi pour prendre en compte les moi a 30 jours
+SI moi_valid ET jour_valid ET moi <> 2
+  CHOIX moi
+    CAS 4 moi_court <- true
+    CAS 6 moi_court <- true
+    CAS 9 moi_court <- true
+    CAS 11 moi_court <- true
+    SINON moi_court <- false
+  FINCHOIX
+
+  SI moi_court ALORS
+    SI jour > MAX_JOUR_MOI_COURT ALORS
+      jour_valid <- false
+    FINSI
+  FINSI
+FINSI
+
+// affichage du resultat
+SI jour_valid ET moi_valid ET annee_valid ALORS
+  ECRIRE("date correcte")
+SINON
+  SI jour_valid = false ALORS
+    ECRIRE("jour incorrect")
+  FINSI
+
+  SI moi_valid = false ALORS
+    ECRIRE("moi incorrect")
+  FINSI
+
+  SI jour_valid = false ALORS
+    ECRIRE("année incorrecte")
+  FINSI
+FINSI
